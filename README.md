@@ -229,7 +229,7 @@
 | -------------   |----------|----------------------|------------------------------|--------------------------------------------------------|
 | `secret`        | String   | required             | Path                         |       The Secret value of the data model.              |
 | `text`          | String   | not required         | Query                        |       Text block to analyze by using the data model.   |
-| `strict`        | Boolean  | not required         | Query                        |                                                        |
+| `strict`        | Boolean  | not required         | Query                        |       Search in a strict mode.                         |
 
   ##### Example Request URL:  
    `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
