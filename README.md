@@ -8,7 +8,7 @@
   - [Authentication](#2-authentication)
   - [Endpoints](#3-endpoints)
     - [Getting Custom Model Predictions](#31-getting-custom-model-predictions)
-    - [Getting Model Details](#32-getting-models-details)
+    - [Getting Model Details](#32-getting-model-details)
     - [Listing All Models](#33-listing-all-models)
     
 ## 1. Overview
