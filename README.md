@@ -7,9 +7,9 @@
   - [Overview](#1-overview)
   - [Authentication](#2-authentication)
   - [Endpoints](#3-endpoints)
-    - [Get All Models](#31-get-all-models)
+    - [Get Models By Secret with Tag](#31-get-models-by-secret-with-tag)
     - [Get Models By Secret](#32-get-models-by-secret)
-    - [Get Models By Secret with Tag](#33-get-models-by-secret-with-tag)
+    - [Get All Models](#33-get-all-models)
     
 ## 1. Overview
 
@@ -65,7 +65,7 @@
   |   PUT            |	Changes and/or replaces resources or collections            |
   |   DELETE         |	Deletes resources                                           |
 
-### 3.1. Get All Models: 
+### 3.1. Get Models By Secret with Tag: 
   
 
  
@@ -209,7 +209,7 @@
   ```
   </details>
 
- ### 3.3. Get Models By Secret with Tag: 
+ ### 3.3. Get All Models: 
  
    This endpoints provides the list of data models.
   - The base URI for all Web API requests is: `https://api.kimola.com/v1/cognitive/Models`
