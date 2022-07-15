@@ -103,18 +103,18 @@
   [
   {
     "isReady": true,
-    "id": 151286,
+    "id": ...,
     "language": "en",
     "languageName": "English",
-    "name": "Mobile Game Conversations Classifier / EN",
-    "category": "Text Classification",
-    "algorithm": "AveragedPerceptronOva",
+    "name": "...",
+    "category": "...",
+    "algorithm": "...",
     "accuracy": 0.87,
     "isOwner": true,
-    "recordCount": 5049,
-    "trainedDate": "2022-07-13T09:37:34.077",
-    "modifiedDate": "2022-07-13T14:15:50.013",
-    "createdDate": "2022-07-13T09:02:48.817"
+    "recordCount": ...,
+    "trainedDate": "...",
+    "modifiedDate": "...",
+    "createdDate": "..."
   },
   ...
   ]
@@ -174,19 +174,19 @@
    ##### Example Response:
   ```
   {
-    "isReady": true,
-    "id": 151286,
-    "language": "en",
-    "languageName": "English",
-    "name": "Mobile Game Conversations Classifier / EN",
-    "category": "Text Classification",
-    "algorithm": "AveragedPerceptronOva",
-    "accuracy": 0.87,
-    "recordCount": 5049,
-    "trainedDate": "2022-07-13T09:37:34.077",
-    "modifiedDate": "2022-07-13T14:15:50.013",
-    "createdDate": "2022-07-13T09:02:48.817"
-  }
+  "isReady": true,
+  "id": ...,
+  "language": "en",
+  "languageName": "English",
+  "name": "...",
+  "category": "...",
+  "algorithm": "...",
+  "accuracy": 0.87,
+  "recordCount": 5049,
+  "trainedDate": "...",
+  "modifiedDate": "...",
+  "createdDate": "..."
+}
   ```
 
   <details><summary>Request Examples in C#</summary>
@@ -250,15 +250,15 @@
   ```
   [
     {
-        "name": "Others",
+        "name": "...",
         "probability": 0.8
     },
     {
-        "name": "Game Praise",
+        "name": "...",
         "probability": 0.11
     },
     {
-        "name": "In-Game Advertising",
+        "name": "...",
         "probability": 0.04
     }
   ]
