@@ -67,12 +67,18 @@
   This endpoints provides the list of data models.
   - The base URI for all Web API requests is: `https://api.kimola.com/v1/cognitive/Models`
   * Pagination:\
-    Endpoint support a way of paging the models, taking an pageSize and pageIndex as query parameters:
+    Endpoint support a way of paging the models, taking an pageSize and pageIndex as query parameters. 
+    Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:
+    The application can use to indicate the page size (the number of items to return in the response).
   
-    | Parameter       | Type     | Required?            |              Place                              |
-    | -------------   |----------|----------------------|-------------------------------------------------|
-    | `pageSize`      | Int32    | not required         |               Query                             |
-    | `pageIndex`     | Int32    | not required         |               Query                             |
+  ##### Example of Request with Pagination:
+   ```https://api.kimola.com/v1/cognitive/Models?pageIndex=0&pageSize=10 ```
+
+  
+   | Parameter       | Type     | Required?            |              Place                              |
+   | -------------   |----------|----------------------|-------------------------------------------------|
+   | `pageSize`      | Int32    | not required         |               Query                             |
+   | `pageIndex`     | Int32    | not required         |               Query                             |
 
   ##### Example Request:
   ```
