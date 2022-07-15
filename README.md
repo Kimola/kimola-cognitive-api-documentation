@@ -71,15 +71,19 @@
     Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:
     The application can use to indicate the page size (the number of items to return in the response).
   
-  ##### Example of Request with Pagination:
-   ```https://api.kimola.com/v1/cognitive/Models?pageIndex=0&pageSize=10 ```
-
-  
    | Parameter       | Type     | Required?            |              Place                              |
    | -------------   |----------|----------------------|-------------------------------------------------|
    | `pageSize`      | Int32    | not required         |               Query                             |
    | `pageIndex`     | Int32    | not required         |               Query                             |
-
+   
+    
+  ##### Example of Request with Pagination:
+   ```https://api.kimola.com/v1/cognitive/Models?pageIndex=0&pageSize=10 ```
+    ```
+   curl --location 
+   --request GET 'https://api.kimola.com/v1/cognitive/Models/?pageSize=10&pageIndex=1' \
+    --header 'Authorization: Bearer 8onLyA9zvJqo4d4A8NCaAA=='
+   ```
   ##### Example Request:
   ```
   curl --location 
