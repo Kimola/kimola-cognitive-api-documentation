@@ -67,7 +67,151 @@
 
 ### 3.1. Get All Models: 
   
-  This endpoints provides the list of data models.
+
+ 
+  This endpoint provides the analysis results of a text block as a list of matching tags with their probabilities.
+  
+  
+| Parameter       | Type     | Required?            | Place                        |       Definition                                       |
+| -------------   |----------|----------------------|------------------------------|--------------------------------------------------------|
+| `secret`        | String   | required             | Path                         |       The Secret value of the data model.              |
+| `text`          | String   | not required         | Query                        |       Text block to analyze by using the data model.   |
+| `strict`        | Boolean  | not required         | Query                        |       Search in a strict mode.                         |
+
+  ##### Example Request URL:  
+   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
+
+  ##### Example Request URL with Parameters:  
+   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false`
+  
+  ##### Example Request:
+  
+  ```
+  curl --location 
+  --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret key}/tags' \
+  --header 'Authorization: Bearer {key}'
+  ```
+  
+   ##### Example Response:
+   
+  ```
+  [
+    {
+        "name": "...",
+        "probability": 0.8
+    },
+    {
+        "name": "...",
+        "probability": 0.11
+    },
+    {
+        "name": "...",
+        "probability": 0.04
+    }
+  ]
+  ```
+  <details><summary>Request Examples in C#</summary>
+  
+  ```
+    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}/tags");
+    client.Timeout = -1;
+    var request = new RestRequest(Method.GET);
+    request.AddHeader("Authorization", "Bearer {key}");
+    IRestResponse response = client.Execute(request);
+    Console.WriteLine(response.Content);
+  ```
+  </details>
+  
+  <details><summary>Request Examples in Python</summary>
+  
+  ```
+    import requests
+
+    url = "https://api.kimola.com/v1/cognitive/Models/kkGN6AfxjuR0xSfyMTPSlg%3D%3D/tags"
+
+    payload={}
+    headers = {
+      'Authorization': 'Bearer 8onLyA9zvJqo4d4A8NCaAA=='
+    }
+
+    response = requests.request("GET", url, headers=headers, data=payload)
+
+    print(response.text)
+
+  ```
+  </details>
+  
+ ### 3.2. Get Models By Secret: 
+ 
+  This endpoint provides details of a data model.
+  
+  
+| Parameter       | Type     | Required?            | Place                  |       Definition                    |
+| -------------   |----------|----------------------|------------------------|-------------------------------------|
+| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
+  
+  ##### Example Request URL:  
+   `https://api.kimola.com/v1/cognitive/Models/{secret} `
+  
+  ##### Example Request:
+  ```
+  curl --location 
+  --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret key}' \
+  --header 'Authorization: Bearer {key}'
+  ```
+  
+   ##### Example Response:
+  ```
+  {
+  "isReady": true,
+  "id": ...,
+  "language": "en",
+  "languageName": "English",
+  "name": "...",
+  "category": "...",
+  "algorithm": "...",
+  "accuracy": 0.87,
+  "recordCount": 5049,
+  "trainedDate": "...",
+  "modifiedDate": "...",
+  "createdDate": "..."
+}
+  ```
+
+  <details><summary>Request Examples in C#</summary>
+  
+  ```
+  var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}");
+  client.Timeout = -1;
+  var request = new RestRequest(Method.GET);
+  request.AddHeader("Authorization", "Bearer {key}");
+  IRestResponse response = client.Execute(request);
+  Console.WriteLine(response.Content);
+  ```
+  </details>
+  
+  <details><summary>Request Examples in Python</summary>
+  
+  ```
+    import requests
+
+    url = "https://api.kimola.com/v1/cognitive/Models/{secret key}"
+
+    payload={}
+    headers = {
+      'Authorization': 'Bearer {key}'
+    }
+
+    response = requests.request("GET", url, headers=headers, data=payload)
+
+    print(response.text)
+  
+  ```
+  </details>
+
+ ### 3.3. Get Models By Secret with Tag: 
+ 
+   This endpoints provides the list of data models.
   - The base URI for all Web API requests is: `https://api.kimola.com/v1/cognitive/Models`
   
  #### Pagination:
@@ -154,145 +298,3 @@
   ```
   </details>
 
-  
- ### 3.2. Get Models By Secret: 
- 
-  This endpoint provides details of a data model.
-  
-  
-| Parameter       | Type     | Required?            | Place                  |       Definition                    |
-| -------------   |----------|----------------------|------------------------|-------------------------------------|
-| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
-  
-  ##### Example Request URL:  
-   `https://api.kimola.com/v1/cognitive/Models/{secret} `
-  
-  ##### Example Request:
-  ```
-  curl --location 
-  --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret key}' \
-  --header 'Authorization: Bearer {key}'
-  ```
-  
-   ##### Example Response:
-  ```
-  {
-  "isReady": true,
-  "id": ...,
-  "language": "en",
-  "languageName": "English",
-  "name": "...",
-  "category": "...",
-  "algorithm": "...",
-  "accuracy": 0.87,
-  "recordCount": 5049,
-  "trainedDate": "...",
-  "modifiedDate": "...",
-  "createdDate": "..."
-}
-  ```
-
-  <details><summary>Request Examples in C#</summary>
-  
-  ```
-  var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}");
-  client.Timeout = -1;
-  var request = new RestRequest(Method.GET);
-  request.AddHeader("Authorization", "Bearer {key}");
-  IRestResponse response = client.Execute(request);
-  Console.WriteLine(response.Content);
-  ```
-  </details>
-  
-  <details><summary>Request Examples in Python</summary>
-  
-  ```
-    import requests
-
-    url = "https://api.kimola.com/v1/cognitive/Models/{secret key}"
-
-    payload={}
-    headers = {
-      'Authorization': 'Bearer {key}'
-    }
-
-    response = requests.request("GET", url, headers=headers, data=payload)
-
-    print(response.text)
-  
-  ```
-  </details>
-
- ### 3.3. Get Models By Secret with Tag: 
- 
-  This endpoint provides the analysis results of a text block as a list of matching tags with their probabilities.
-  
-  
-| Parameter       | Type     | Required?            | Place                        |       Definition                                       |
-| -------------   |----------|----------------------|------------------------------|--------------------------------------------------------|
-| `secret`        | String   | required             | Path                         |       The Secret value of the data model.              |
-| `text`          | String   | not required         | Query                        |       Text block to analyze by using the data model.   |
-| `strict`        | Boolean  | not required         | Query                        |       Search in a strict mode.                         |
-
-  ##### Example Request URL:  
-   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
-
-  ##### Example Request URL with Parameters:  
-   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false`
-  
-  ##### Example Request:
-  
-  ```
-  curl --location 
-  --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret key}/tags' \
-  --header 'Authorization: Bearer {key}'
-  ```
-  
-   ##### Example Response:
-   
-  ```
-  [
-    {
-        "name": "...",
-        "probability": 0.8
-    },
-    {
-        "name": "...",
-        "probability": 0.11
-    },
-    {
-        "name": "...",
-        "probability": 0.04
-    }
-  ]
-  ```
-  <details><summary>Request Examples in C#</summary>
-  
-  ```
-    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}/tags");
-    client.Timeout = -1;
-    var request = new RestRequest(Method.GET);
-    request.AddHeader("Authorization", "Bearer {key}");
-    IRestResponse response = client.Execute(request);
-    Console.WriteLine(response.Content);
-  ```
-  </details>
-  
-  <details><summary>Request Examples in Python</summary>
-  
-  ```
-    import requests
-
-    url = "https://api.kimola.com/v1/cognitive/Models/kkGN6AfxjuR0xSfyMTPSlg%3D%3D/tags"
-
-    payload={}
-    headers = {
-      'Authorization': 'Bearer 8onLyA9zvJqo4d4A8NCaAA=='
-    }
-
-    response = requests.request("GET", url, headers=headers, data=payload)
-
-    print(response.text)
-
-  ```
-  </details>
