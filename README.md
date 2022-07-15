@@ -70,16 +70,18 @@
  #### Pagination:
    Endpoint support a way of paging the models, taking an pageSize and pageIndex as query parameters. 
    Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:\
-   The application can use to indicate the page size (the number of items to return in the response) and the page index(The index of the first item you want results for) 
+   The application can use to indicate the page size (the number of items to return in the response) and the page index(index of the first item you want    results for). 
   
    | Parameter       | Type     | Required?            |              Place                              |
    | -------------   |----------|----------------------|-------------------------------------------------|
    | `pageSize`      | Int32    | not required         |               Query                             |
    | `pageIndex`     | Int32    | not required         |               Query                             |
    
-    
-  * Example Request URL:  
-   `https://api.kimola.com/v1/cognitive/Models?pageIndex=0&pageSize=10 `
+  ##### Example Request URL:  
+   `https://api.kimola.com/v1/cognitive/Models`
+   
+  ##### Example Request URL with Parameters:  
+   `https://api.kimola.com/v1/cognitive/Models?pageIndex=0&pageSize=10`
   
   ##### Example of Request with Pagination:
    
@@ -159,6 +161,9 @@
 | -------------   |----------|----------------------|------------------------|-------------------------------------|
 | `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
   
+  ##### Example Request URL:  
+   `https://api.kimola.com/v1/cognitive/Models/{secret} `
+  
   ##### Example Request:
   ```
   curl --location 
@@ -226,6 +231,11 @@
 | `text`          | String   | not required         | Query                        |       Text block to analyze by using the data model.   |
 | `strict`        | Boolean  | not required         | Query                        |                                                        |
 
+  ##### Example Request URL:  
+   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
+
+  ##### Example Request URL with Parameters:  
+   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false`
   
   ##### Example Request:
   
