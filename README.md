@@ -7,8 +7,8 @@
   - [Overview](#1-overview)
   - [Authentication](#2-authentication)
   - [Endpoints](#3-endpoints)
-    - [Get Models By Secret with Tag](#31-get-models-by-secret-with-tag)
-    - [Get Models By Secret](#32-get-models-by-secret)
+    - [Getting Custom Model Predictions](#31-get-custom-model-predictions)
+    - [Getting Model Details](#32-get-models-details)
     - [Listing All Models](#33-listing-all-models)
     
 ## 1. Overview
@@ -65,9 +65,7 @@
   |   PUT            |	Changes and/or replaces resources or collections            |
   |   DELETE         |	Deletes resources                                           |
 
-### 3.1. Get Models By Secret with Tag: 
-  
-
+### 3.1. Getting Custom Model Predictions: 
  
   This endpoint provides the analysis results of a text block as a list of matching tags with their probabilities.
   
@@ -141,7 +139,7 @@
   ```
   </details>
   
- ### 3.2. Get Models By Secret: 
+ ### 3.2. Getting Model Details: 
  
   This endpoint provides details of a data model.
   
