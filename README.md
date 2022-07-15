@@ -8,7 +8,9 @@
   - [Authentication](#2-authentication)
   - [Endpoints](#3-endpoints)
     - [Get All Models](#31-get-all-models)
-
+    - [Get Models By Secret](#32-get-models-by-secret)
+    - [Get Models By Secret with Tag](#33-get-models-by-secret-with-tag)
+    
 ## 1. Overview
 
   Cognitive’s API is a JSON-based OAuth2 API. All requests are made to endpoints beginning:
