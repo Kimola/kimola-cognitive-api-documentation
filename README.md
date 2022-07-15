@@ -7,6 +7,7 @@
   - [Overview](#1-overview)
   - [Authentication](#2-authentication)
   - [Endpoints](#3-endpoints)
+    - [Get All Models](#31-get-all-models)
 
 ## 1. Overview
 
