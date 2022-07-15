@@ -8,8 +8,11 @@
   - [Authentication](#2-authentication)
   - [Endpoints](#3-endpoints)
     - [Getting Custom Model Predictions](#31-getting-custom-model-predictions)
-    - [Getting Model Details](#32-getting-model-details)
-    - [Listing All Models](#33-listing-all-models)
+    - [Getting Custom Model Predictions with Batch](#32-getting-custom-model-predictions-with-batch)
+    - [Getting Pre-built Model Predictions](#33-getting-pre-built-model-predictions)
+    - [Getting Pre-built Model Predictions with Batch](#34-getting-pre-built-model-predictions-with-batch)
+    - [Getting Model Details](#35-getting-model-details)
+    - [Listing All Models](#36-listing-all-models)
     
 ## 1. Overview
 
@@ -138,8 +141,10 @@
 
   ```
   </details>
-  
- ### 3.2. Getting Model Details: 
+ ### 3.2. Getting Custom Model Predictions with Batch: 
+ ### 3.3. Getting Pre-Built Model Predictions: 
+ ### 3.4. Getting Pre-Built Model Predictions with Batch: 
+ ### 3.5. Getting Model Details: 
  
   This endpoint provides details of a data model.
   
@@ -207,7 +212,7 @@
   ```
   </details>
 
- ### 3.3. Listing All Models: 
+ ### 3.6. Listing All Models: 
  
    This endpoints provides the list of data models.
   - The base URI for all Web API requests is: `https://api.kimola.com/v1/cognitive/Models`
