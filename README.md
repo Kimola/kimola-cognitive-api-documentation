@@ -37,7 +37,7 @@
   --header 'Authorization: Bearer {key}'
   ```
   What is curl?\
-  curl (short for "Client URL") is a command line tool that enables data transfer over various network protocols. It communicates with a web or       application server by specifying a relevant URL and the data that need to be sent or received.\
+  curl (short for "Client URL") is a command line tool that enables data transfer over various network protocols. It communicates with a web or       application server by specifying a relevant URL and the data that need to be sent or received. \
 
   Cognitive uses conventional HTTP response codes to indicate the success or failure of an API request.
 
