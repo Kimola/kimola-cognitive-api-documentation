@@ -155,9 +155,9 @@
   This endpoint provides details of a data model.
   
   
-| Parameter       | Type     | Required?            | Place                                           |
-| -------------   |----------|----------------------|-------------------------------------------------|
-| `secret`        | string   |  required            | Path                                            |
+| Parameter       | Type     | Required?            | Place                  |       Definition                    |
+| -------------   |----------|----------------------|--------------------------------------------------------------|
+| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
   
   ##### Example Request:
   ```
