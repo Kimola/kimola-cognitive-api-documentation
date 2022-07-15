@@ -69,7 +69,7 @@
   
   * Pagination:\
     Endpoint support a way of paging the models, taking an pageSize and pageIndex as query parameters. 
-    Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:
+    Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:\
     The application can use to indicate the page size (the number of items to return in the response) and the page index(The index of the first item you want results for) 
   
    | Parameter       | Type     | Required?            |              Place                              |
