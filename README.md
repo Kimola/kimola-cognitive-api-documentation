@@ -37,7 +37,7 @@
   --header 'Authorization: Bearer {key}'
   ```
   What is curl?\
-  curl (short for "Client URL") is a command line tool that enables data transfer over various network protocols. It communicates with a web or       application server by specifying a relevant URL and the data that need to be sent or received.
+  curl (short for "Client URL") is a command line tool that enables data transfer over various network protocols. It communicates with a web or       application server by specifying a relevant URL and the data that need to be sent or received.\
 
   Cognitive uses conventional HTTP response codes to indicate the success or failure of an API request.
 
@@ -69,7 +69,7 @@
   * Pagination:\
     Endpoint support a way of paging the models, taking an pageSize and pageIndex as query parameters. 
     Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:
-    The application can use to indicate the page size (the number of items to return in the response).
+    The application can use to indicate the page size (the number of items to return in the response) and the page index(the).
   
    | Parameter       | Type     | Required?            |              Place                              |
    | -------------   |----------|----------------------|-------------------------------------------------|
@@ -78,12 +78,14 @@
    
     
   ##### Example of Request with Pagination:
-   ```https://api.kimola.com/v1/cognitive/Models?pageIndex=0&pageSize=10 ```
-    ```
+   `https://api.kimola.com/v1/cognitive/Models?pageIndex=0&pageSize=10 `
+   
+   ```
    curl --location 
    --request GET 'https://api.kimola.com/v1/cognitive/Models/?pageSize=10&pageIndex=1' \
     --header 'Authorization: Bearer 8onLyA9zvJqo4d4A8NCaAA=='
    ```
+   
   ##### Example Request:
   ```
   curl --location 
