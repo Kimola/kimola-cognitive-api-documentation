@@ -9,7 +9,7 @@
   - [Endpoints](#3-endpoints)
     - [Get Models By Secret with Tag](#31-get-models-by-secret-with-tag)
     - [Get Models By Secret](#32-get-models-by-secret)
-    - [Get All Models](#33-get-all-models)
+    - [Listing All Models](#33-listing-all-models)
     
 ## 1. Overview
 
@@ -209,7 +209,7 @@
   ```
   </details>
 
- ### 3.3. Get All Models: 
+ ### 3.3. Listing All Models: 
  
    This endpoints provides the list of data models.
   - The base URI for all Web API requests is: `https://api.kimola.com/v1/cognitive/Models`
