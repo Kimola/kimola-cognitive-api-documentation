@@ -144,9 +144,24 @@
   
  ### 3.2. Getting Custom Model Predictions with Batch: 
  
+ 
+| Parameter       | Type     | Required?            | Place                  |       Definition                    |
+| -------------   |----------|----------------------|------------------------|-------------------------------------|
+| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
+ 
  ### 3.3. Getting Pre-Built Model Predictions: 
  
+   
+| Parameter       | Type     | Required?            | Place                  |       Definition                    |
+| -------------   |----------|----------------------|------------------------|-------------------------------------|
+| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
+ 
  ### 3.4. Getting Pre-Built Model Predictions with Batch: 
+ 
+ 
+| Parameter       | Type     | Required?            | Place                  |       Definition                    |
+| -------------   |----------|----------------------|------------------------|-------------------------------------|
+| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
  
  ### 3.5. Getting Model Details: 
  
