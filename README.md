@@ -1,4 +1,3 @@
-# -kimola-cognitive-api-documentation
 # Kimola Cognitive’s API documentation
 
   This repository contains the documentation for [Cognitive](https://cognitive.kimola.com)’s API.
