@@ -41,7 +41,7 @@
 
   Cognitive uses conventional HTTP response codes to indicate the success or failure of an API request.
 
-  *  Responses and Descriptions:
+  #####  Responses and Descriptions:
 
  |   CODE           |  DESCRIPTION                                                    |
  | -----------------|-----------------------------------------------------------------|
