@@ -217,14 +217,14 @@
 
  ### 3.3. Get Models By Secret with Tag: 
  
-  This endpoint provides details of a data model.
+  This endpoint provides the analysis results of a text block as a list of matching tags with their probabilities.
   
   
-| Parameter       | Type     | Required?            | Place                                           |
-| -------------   |----------|----------------------|-------------------------------------------------|
-| `secret`        | String   | required             | Path                                            |
-| `text`          | String   | not required         | Query                                           |
-| `strict`        | Boolean  | not required         | Query                                           |
+| Parameter       | Type     | Required?            | Place                        |       Definition                                       |
+| -------------   |----------|----------------------|------------------------------|--------------------------------------------------------|
+| `secret`        | String   | required             | Path                         |       The Secret value of the data model.              |
+| `text`          | String   | not required         | Query                        |       Text block to analyze by using the data model.   |
+| `strict`        | Boolean  | not required         | Query                        |                                                        |
 
   
   ##### Example Request:
