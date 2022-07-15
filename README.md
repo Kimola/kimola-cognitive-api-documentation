@@ -215,11 +215,10 @@
   ```
   </details>
 
- ### 3.3. Get Models By Secret By Tag: 
+ ### 3.3. Get Models By Secret with Tag: 
  
   This endpoint provides details of a data model.
   
-
   
 | Parameter       | Type     | Required?            | Place                                           |
 | -------------   |----------|----------------------|-------------------------------------------------|
