@@ -242,7 +242,7 @@
    ```
    curl --location 
    --request GET 'https://api.kimola.com/v1/cognitive/Models/?pageSize=10&pageIndex=1' \
-    --header 'Authorization: Bearer 8onLyA9zvJqo4d4A8NCaAA=='
+    --header 'Authorization: Bearer {key}'
    ```
    
   ##### Example Request:
