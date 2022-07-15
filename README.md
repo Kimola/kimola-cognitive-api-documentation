@@ -141,9 +141,13 @@
 
   ```
   </details>
+  
  ### 3.2. Getting Custom Model Predictions with Batch: 
+ 
  ### 3.3. Getting Pre-Built Model Predictions: 
+ 
  ### 3.4. Getting Pre-Built Model Predictions with Batch: 
+ 
  ### 3.5. Getting Model Details: 
  
   This endpoint provides details of a data model.
