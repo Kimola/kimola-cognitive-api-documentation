@@ -67,11 +67,13 @@
   |   POST           |	Creates resources                                           |
   |   PUT            |	Changes and/or replaces resources or collections            |
   |   DELETE         |	Deletes resources                                           |
+  
+  Custom models are the name given to the user-created models that you access in the desktop models menu.
+  Pre-built models are the predefined models listed on the gallery page.
 
 ### 3.1. Getting Custom Model Predictions: 
  
-  This endpoint provides the analysis results of a text block as a list of matching tags with their probabilities.
-  
+This endpoint returns all matching results when the request is sent and it provides the analysis results of a text block as a list of matching tags with their probabilities. 
   
 | Parameter       | Type     | Required?            | Place                        |       Definition                                       |
 | -------------   |----------|----------------------|------------------------------|--------------------------------------------------------|
@@ -85,43 +87,45 @@
   ##### Example Request URL with Parameters:  
    `https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false`
   
-  ##### Example Request:
+   ##### Example Request:
   
-  ```
-  curl --location 
-  --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret key}/tags' \
-  --header 'Authorization: Bearer {key}'
-  ```
+    ```
+    curl --location 
+    --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret key}/tags' \
+    --header 'Authorization: Bearer {key}'
+    ```
   
    ##### Example Response:
-   
-  ```
-  [
-    {
-        "name": "...",
-        "probability": 0.8
-    },
-    {
-        "name": "...",
-        "probability": 0.11
-    },
-    {
-        "name": "...",
-        "probability": 0.04
-    }
-  ]
-  ```
-  <details><summary>Request Examples in C#</summary>
+
+    ```
+    [
+      {
+          "name": "...",
+          "probability": 0.8
+      },
+      {
+          "name": "...",
+          "probability": 0.11
+      },
+      {
+          "name": "...",
+          "probability": 0.04
+      }
+    ]
+    ```
+    
+   <details><summary>Request Examples in C#</summary>
+
+    ```
+      var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}/tags");
+      client.Timeout = -1;
+      var request = new RestRequest(Method.GET);
+      request.AddHeader("Authorization", "Bearer {key}");
+      IRestResponse response = client.Execute(request);
+      Console.WriteLine(response.Content);
+    ```
   
-  ```
-    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}/tags");
-    client.Timeout = -1;
-    var request = new RestRequest(Method.GET);
-    request.AddHeader("Authorization", "Bearer {key}");
-    IRestResponse response = client.Execute(request);
-    Console.WriteLine(response.Content);
-  ```
-  </details>
+   </details>
   
   <details><summary>Request Examples in Python</summary>
   
@@ -140,28 +144,253 @@
     print(response.text)
 
   ```
+  
   </details>
   
  ### 3.2. Getting Custom Model Predictions with Batch: 
  
+ This endpoint creates anew record that belongs to a data model. Each time you create a record, you are actually training the parent data model.
+ Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response.
+ 
  
 | Parameter       | Type     | Required?            | Place                  |       Definition                    |
 | -------------   |----------|----------------------|------------------------|-------------------------------------|
 | `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
+
+  ##### Example Request URL:  
+   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
+  
+  ##### Example Request:
+  
+  ```
+  curl -X 'POST' \
+    'https://api.kimola.com/v1/cognitive/Models/{secret}/tags' \
+    -H 'accept: */*' \
+    -H 'Authorization: Bearer {key}' \
+    -H 'Content-Type: application/json-patch+json' \
+    -d '[
+    {
+      "id": "...",
+      "text": "..."
+    }
+  ]'
+  ```
+  
+   ##### Example Response:
+   
+  ```
+  [
+    {
+      "id": "...",
+      "label": "...",
+      "probability": 0.96
+    }
+  ]
+  ```
+  <details><summary>Request Examples in C#</summary>
+  
+  ```
+    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}/tags");
+    client.Timeout = -1;
+    var request = new RestRequest(Method.POST);
+    request.AddHeader("Authorization", "Bearer {key}");
+    request.AddHeader("Content-Type", "application/json");
+    var body = @"[" + "\n" +
+    @"  {" + "\n" +
+    @"    ""id"": ""0""," + "\n" +
+    @"    ""text"": ""I love this game""" + "\n" +
+    @"  }" + "\n" +
+    @"]'";
+    request.AddParameter("application/json", body,  ParameterType.RequestBody);
+    IRestResponse response = client.Execute(request);
+    Console.WriteLine(response.Content);
+  ```
+  
+  </details>
+  
+  <details><summary>Request Examples in Python</summary>
+  
+  ```
+    import requests
+    import json
+
+    url = "https://api.kimola.com/v1/cognitive/Models/{secret key}/tags"
+
+    payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  }\n]'"
+    headers = {
+      'Authorization': 'Bearer {key}',
+      'Content-Type': 'application/json'
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+
+    print(response.text)
+
+  ```
+  
+  </details>
+  
  
  ### 3.3. Getting Pre-Built Model Predictions: 
  
    
+ 
 | Parameter       | Type     | Required?            | Place                  |       Definition                    |
 | -------------   |----------|----------------------|------------------------|-------------------------------------|
 | `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
+
+  ##### Example Request URL:  
+   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
+  
+  ##### Example Request:
+  
+  ```
+  curl -X 'POST' \
+    'https://api.kimola.com/v1/cognitive/Models/{secret}/tags' \
+    -H 'accept: */*' \
+    -H 'Authorization: Bearer {key}' \
+    -H 'Content-Type: application/json-patch+json' \
+    -d '[
+    {
+      "id": "...",
+      "text": "..."
+    }
+  ]'
+  ```
+  
+   ##### Example Response:
+   
+  ```
+  [
+    {
+      "id": "...",
+      "label": "...",
+      "probability": 0.96
+    }
+  ]
+  ```
+  <details><summary>Request Examples in C#</summary>
+  
+  ```
+    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}/tags");
+    client.Timeout = -1;
+    var request = new RestRequest(Method.POST);
+    request.AddHeader("Authorization", "Bearer {key}");
+    request.AddHeader("Content-Type", "application/json");
+    var body = @"[" + "\n" +
+    @"  {" + "\n" +
+    @"    ""id"": ""0""," + "\n" +
+    @"    ""text"": ""I love this game""" + "\n" +
+    @"  }" + "\n" +
+    @"]'";
+    request.AddParameter("application/json", body,  ParameterType.RequestBody);
+    IRestResponse response = client.Execute(request);
+    Console.WriteLine(response.Content);
+  ```
+  
+  </details>
+  
+  <details><summary>Request Examples in Python</summary>
+  
+  ```
+    import requests
+    import json
+
+    url = "https://api.kimola.com/v1/cognitive/Models/{secret key}/tags"
+
+    payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  }\n]'"
+    headers = {
+      'Authorization': 'Bearer {key}',
+      'Content-Type': 'application/json'
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+
+    print(response.text)
+
+  ```
+  
+  </details>
+  
+ 
  
  ### 3.4. Getting Pre-Built Model Predictions with Batch: 
  
+ This method provides the analysis results of a text block as a list of matching tags with their probabilities. 
  
-| Parameter       | Type     | Required?            | Place                  |       Definition                    |
-| -------------   |----------|----------------------|------------------------|-------------------------------------|
-| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
+| Parameter       | Type            | Required?            | Place                  |       Definition                               |
+| -------------   |-----------------|----------------------|------------------------|------------------------------------------------|
+| `code`          | string($uuid)   |  required            | Path                   | The Secret value of the data model.            |
+| `language`      | string          |  required            | Path                   | The Secret value of the data model.            |
+| `text`          | string          |  not required        | Query                  | Text block to analyze by using the data model. |
+| `strict`        | boolean         |  not required        | Query                  | The Secret value of the data model.            |
+
+
+  ##### Example Request URL:  
+   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
+  
+  ##### Example Request:
+  
+  ```
+  curl -X 'GET' \
+  'https://api.kimola.com/v1/cognitive/Models/{code}/en/tags?text=hello \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer {key}'
+  ```
+  
+   ##### Example Response:
+   
+  ```
+[
+  {
+    "name": "...",
+    "probability": 0.92
+  },
+  {
+    "name": "...",
+    "probability": 0.07
+  },
+  {
+    "name": "...",
+    "probability": 0.01
+  }
+]
+  ```
+  <details><summary>Request Examples in C#</summary>
+  
+  ```
+  var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{code}/en/tags?text=hello");
+  client.Timeout = -1;
+  var request = new RestRequest(Method.POST);
+  request.AddHeader("Authorization", "Bearer {key}");
+  IRestResponse response = client.Execute(request);
+  Console.WriteLine(response.Content);
+  ```
+  
+  </details>
+  
+  <details><summary>Request Examples in Python</summary>
+  
+  ```
+  import requests
+
+  url = "https://api.kimola.com/v1/cognitive/Models/{code}/en/tags?text=hello"
+
+  payload={}
+  headers = {
+    'Authorization': 'Bearer {key}'
+  }
+
+  response = requests.request("POST", url, headers=headers, data=payload)
+
+  print(response.text)
+
+
+  ```
+  
+  </details>
+  
+ 
  
  ### 3.5. Getting Model Details: 
  
@@ -197,7 +426,7 @@
   "trainedDate": "...",
   "modifiedDate": "...",
   "createdDate": "..."
-}
+  }
   ```
 
   <details><summary>Request Examples in C#</summary>
@@ -210,6 +439,7 @@
   IRestResponse response = client.Execute(request);
   Console.WriteLine(response.Content);
   ```
+  
   </details>
   
   <details><summary>Request Examples in Python</summary>
@@ -229,6 +459,7 @@
     print(response.text)
   
   ```
+  
   </details>
 
  ### 3.6. Listing All Models: 
@@ -269,6 +500,7 @@
   
    ##### Example Response:
   ```
+  
   [
   {
     "isReady": true,
@@ -287,6 +519,7 @@
   },
   ...
   ]
+  
   ```
 
   <details><summary>Request Examples in C#</summary>
@@ -299,6 +532,7 @@
   IRestResponse response = client.Execute(request);
   Console.WriteLine(response.Content);
   ```
+  
   </details>
   
   <details><summary>Request Examples in Python</summary>
@@ -318,5 +552,8 @@
     print(response.text)
   
   ```
+  
   </details>
-
+  
+  When the result comes, top match result comes.
+  
