@@ -16,10 +16,24 @@
     
 ## 1. Overview
 
-  Kimola Cognitive’s API is a JSON-based OAuth2 API. All requests are made to endpoints beginning:
-  `https://api.kimola.com/v1`
+   Kimola Cognitive’s API is a JSON-based OAuth2 API. All requests are made to endpoints beginning:
+   `https://api.kimola.com/v1/cognitive`
+   All requests must be secure, i.e. `https`, not `http`.
+  
+  For example, if we want to examine this url: `https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false`
+  
+  The base path (or base URL or host) refers to the common path for the API. In the example above, the base path is `https://api.kimola.com/v1/cognitive`
+  The endpoint refers to the end path of the endpoint. In the example above, `/models`
+  The `?text=hello&strict=false` part of the endpoint contains query string parameters for the endpoint.
 
-  All requests must be secure, i.e. `https`, not `http`.
+  #### Pagination:
+  Endpoint support a way of paging the models, taking an pageSize and pageIndex as query parameters. 
+  Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:\
+  The application can use to indicate the page size (the number of items to return in the response) and the page index(index of the first item you want    results for). 
+   
+  For example, if we want to examine this url:  `https://api.kimola.com/v1/cognitive/Models?pageIndex=0&pageSize=10`
+  In the example above, this endpoint would get the "models" resource and limit the result to 10 models with page index 0.
+  
 
   #### Developer agreement
 
@@ -398,7 +412,6 @@ This endpoint returns all matching results when the request is sent and it provi
  
   This endpoint provides details of a data model.
   
-  
 | Parameter       | Type     | Required?            | Place                  |       Definition                    |
 | -------------   |----------|----------------------|------------------------|-------------------------------------|
 | `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
@@ -468,11 +481,6 @@ This endpoint returns all matching results when the request is sent and it provi
  
    This endpoints provides the list of data models.
   - The base URI for all Web API requests is: `https://api.kimola.com/v1/cognitive/Models`
-  
- #### Pagination:
-   Endpoint support a way of paging the models, taking an pageSize and pageIndex as query parameters. 
-   Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:\
-   The application can use to indicate the page size (the number of items to return in the response) and the page index(index of the first item you want    results for). 
   
    | Parameter       | Type     | Required?            |              Place                              |
    | -------------   |----------|----------------------|-------------------------------------------------|
