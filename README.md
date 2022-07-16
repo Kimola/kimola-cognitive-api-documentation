@@ -74,6 +74,7 @@
 ### 3.1. Getting Custom Model Predictions: 
  
 This endpoint returns all matching results when the request is sent and it provides the analysis results of a text block as a list of matching tags with their probabilities. 
+
   
 | Parameter       | Type     | Required?            | Place                        |       Definition                                       |
 | -------------   |----------|----------------------|------------------------------|--------------------------------------------------------|
@@ -320,10 +321,12 @@ This endpoint returns all matching results when the request is sent and it provi
  
 | Parameter       | Type            | Required?            | Place                  |       Definition                               |
 | -------------   |-----------------|----------------------|------------------------|------------------------------------------------|
-| `code`          | string($uuid)   |  required            | Path                   | The Secret value of the data model.            |
-| `language`      | string          |  required            | Path                   | The Secret value of the data model.            |
+| `code`          | string($uuid)   |  required            | Path                   | The Code value of the pre-built model.         |
+| `language`      | string          |  required            | Path                   | the language you want to see the result in     |
 | `text`          | string          |  not required        | Query                  | Text block to analyze by using the data model. |
 | `strict`        | boolean         |  not required        | Query                  | The Secret value of the data model.            |
+
+
 
 
   ##### Example Request URL:  
@@ -556,4 +559,12 @@ This endpoint returns all matching results when the request is sent and it provi
   </details>
   
   When the result comes, top match result comes.
+  It lists all the categories that may contain the word and the probability of being in those categories.
+  
+  Even if the id you send to this method is not empty or odd, you will not get an error. Kimola does not guarantee a sequential response.
+  
+  Kimola uses the languages it supports, the notation of ISO [639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) codes with 2-letter notation. ISO 639 is a standardized nomenclature used to classify languages. Each language is assigned a two-letter (639-1).
+  For example, when you want to choose Spanish, es, which corresponds to 2 letters, should be selected as the language code.
+  
+
   
