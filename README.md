@@ -23,20 +23,21 @@
    
    The API accepts JSON or form-encoded content in requests and returns JSON content in all of its responses, including errors. Only the UTF-8 character encoding is supported for both requests and responses.
    
-  For example, if we want to examine this url: `https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false`
+  For example, if we want to examine this url: `https://api.kimola.com/v1/cognitive/Models/{secret key}/tags?text=hello&strict=false`
   
   * The base path (or base URL or host) refers to the common path for the API. In the example above, the base path is `https://api.kimola.com/v1/cognitive` 
   * The endpoint refers to the end path of the endpoint. In the example above, `/models`
   * The `?text=hello&strict=false` part of the endpoint contains query string parameters for the endpoint.
 
-  #### Pagination:
-  Endpoint support a way of paging the models, taking an pageSize and pageIndex as query parameters. Any API response which contains multiple resources     supports several common query parameters to handle paging through the response data:
-  The application can use to indicate the page size (the number of items to return in the response) and the page index(index of the first item you want    results for). 
+You can have multiple endpoints that refer to the same resource. Here’s one variation:
+
+  #### Notes on Pagination:
+  Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:
+  The application can use to indicate the page size(the number of items to return in the response) and the page index(index of the first item you want    results for). 
    
   For example, if we want to examine this url:  `https://api.kimola.com/v1/cognitive/Models?pageIndex=0&pageSize=10`
   * In the example above, this endpoint would get the "models" resource and limit the result to 10 models with page index 0.
   
-
   #### Developer agreement
 
   By using Kimola Cognitive’s API, you agree to our [terms of service](https://kimola.com/terms-of-service).
@@ -47,7 +48,7 @@
   Kimola Cognitive requires that you authenticate by sending an API Key with each request to grant you access to the API.
   Every Kimola Cognitive account has its own API Key. If you don’t have an account yet, you can register at [our website](https://kimola.com/cognitive).
 
-  Once you have an account, you will find your API Key in Models page.
+  Once you have an account, you will find your API Key in Models page. 
 
   - Sending API requests using cURL
 
@@ -58,8 +59,9 @@
   --request GET 'https://api.kimola.com/v1/cognitive/Models' \
   --header 'Authorization: Bearer {key}'
   ```
-  What is curl?\
-    curl (short for "Client URL") is a command line tool that enables data transfer over various network protocols. It communicates with a web or       application server by specifying a relevant URL and the data that need to be sent or received. 
+  <details><summary>What is curl?</summary>
+     curl (short for "Client URL") is a command line tool that enables data transfer over various network protocols. It communicates with a web or       application server by specifying a relevant URL and the data that need to be sent or received. 
+  </details>
 
   Kimola Cognitive uses conventional HTTP response codes to indicate the success or failure of an API request.
 
