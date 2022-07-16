@@ -17,11 +17,12 @@
 ## 1. Overview
 
    Kimola Cognitive’s API is a JSON-based OAuth2 API. All requests are made to endpoints beginning:
-   `https://api.kimola.com/v1/cognitive`. 
+   `https://api.kimola.com/v1/cognitive`. All requests must be secure, i.e. `https`, not `http`.
+   
    The Kimola Cognitive's API is a RESTful interface, providing programmatic access to much of the data in the system. It provides predictable URLs for accessing resources, and uses built-in HTTP features to receive commands and return responses.
    
-   All requests must be secure, i.e. `https`, not `http`.
-  
+   The API accepts JSON or form-encoded content in requests and returns JSON content in all of its responses, including errors. Only the UTF-8 character encoding is supported for both requests and responses.
+   
   For example, if we want to examine this url: `https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false`
   
   * The base path (or base URL or host) refers to the common path for the API. In the example above, the base path is `https://api.kimola.com/v1/cognitive` 
