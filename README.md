@@ -1,6 +1,6 @@
 # Kimola Cognitive’s API documentation
 
-  This repository contains the documentation for [Cognitive](https://cognitive.kimola.com)’s API.
+  This repository contains the documentation for [Kimola Cognitive](https://cognitive.kimola.com)’s API.
 
   #### Contents
 
@@ -8,9 +8,9 @@
   - [Authentication](#2-authentication)
   - [Endpoints](#3-endpoints)
     - [Getting Custom Model Predictions](#31-getting-custom-model-predictions)
-    - [Getting Custom Model Predictions with Batch](#32-getting-custom-model-predictions-with-batch)
+    - [Getting Custom Model Predictions(Batch)](#32-getting-custom-model-predictions-(batch))
     - [Getting Pre-built Model Predictions](#33-getting-pre-built-model-predictions)
-    - [Getting Pre-built Model Predictions with Batch](#34-getting-pre-built-model-predictions-with-batch)
+    - [Getting Pre-built Model Predictions (Batch)](#34-getting-pre-built-model-predictions-(batch))
     - [Getting Model Details](#35-getting-model-details)
     - [Listing All Models](#36-listing-all-models)
     
@@ -148,7 +148,7 @@ This endpoint returns all matching results when the request is sent and it provi
   
   </details>
   
- ### 3.2. Getting Custom Model Predictions with Batch: 
+ ### 3.2. Getting Custom Model Predictions(Batch): 
  
  This endpoint creates anew record that belongs to a data model. Each time you create a record, you are actually training the parent data model.
  Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response.
@@ -315,7 +315,7 @@ This endpoint returns all matching results when the request is sent and it provi
   
  
  
- ### 3.4. Getting Pre-Built Model Predictions with Batch: 
+ ### 3.4. Getting Pre-Built Model Predictions(Batch): 
  
  This method provides the analysis results of a text block as a list of matching tags with their probabilities. 
  
