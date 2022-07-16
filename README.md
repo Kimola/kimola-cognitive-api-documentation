@@ -17,7 +17,8 @@
 ## 1. Overview
 
    Kimola Cognitive’s API is a JSON-based OAuth2 API. All requests are made to endpoints beginning:
-   `https://api.kimola.com/v1/cognitive`
+   `https://api.kimola.com/v1/cognitive`. 
+   The Kimola Cognitive's API is a RESTful interface, providing programmatic access to much of the data in the system. It provides predictable URLs for accessing resources, and uses built-in HTTP features to receive commands and return responses.
    
    All requests must be secure, i.e. `https`, not `http`.
   
