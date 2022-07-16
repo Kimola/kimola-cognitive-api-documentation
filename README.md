@@ -23,8 +23,8 @@
   
   For example, if we want to examine this url: `https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false`
   
-  The base path (or base URL or host) refers to the common path for the API. In the example above, the base path is `https://api.kimola.com/v1/cognitive`\
-  The endpoint refers to the end path of the endpoint. In the example above, `/models`\
+  The base path (or base URL or host) refers to the common path for the API. In the example above, the base path is `https://api.kimola.com/v1/cognitive`\n
+  The endpoint refers to the end path of the endpoint. In the example above, `/models`\n
   The `?text=hello&strict=false` part of the endpoint contains query string parameters for the endpoint.
 
   #### Pagination:
