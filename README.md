@@ -18,6 +18,7 @@
 
    Kimola Cognitive’s API is a JSON-based OAuth2 API. All requests are made to endpoints beginning:
    `https://api.kimola.com/v1/cognitive`
+   
    All requests must be secure, i.e. `https`, not `http`.
   
   For example, if we want to examine this url: `https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false`
