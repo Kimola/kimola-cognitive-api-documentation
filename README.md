@@ -234,7 +234,7 @@ This endpoint returns all matching results when the request is sent and it provi
  
  ### 3.3. Getting Pre-Built Model Predictions: 
  
-   
+ This method provides the analysis result of a text block top most matching tag with its probability.
  
 | Parameter       | Type     | Required?            | Place                  |       Definition                    |
 | -------------   |----------|----------------------|------------------------|-------------------------------------|
@@ -324,8 +324,7 @@ This endpoint returns all matching results when the request is sent and it provi
 | `code`          | string($uuid)   |  required            | Path                   | The Code value of the pre-built model.         |
 | `language`      | string          |  required            | Path                   | the language you want to see the result in     |
 | `text`          | string          |  not required        | Query                  | Text block to analyze by using the data model. |
-| `strict`        | boolean         |  not required        | Query                  | The Secret value of the data model.            |
-
+| `strict`        | boolean         |  not required        | Query                  |                                                |
 
 
 
@@ -567,4 +566,4 @@ This endpoint returns all matching results when the request is sent and it provi
   For example, when you want to choose Spanish, es, which corresponds to 2 letters, should be selected as the language code.
   
 
-  
+  Batch input size must be lower than 100.
