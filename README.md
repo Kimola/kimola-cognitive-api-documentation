@@ -151,11 +151,11 @@ This endpoint returns all matching results when the request is sent and it provi
   ```
     import requests
 
-    url = "https://api.kimola.com/v1/cognitive/Models/kkGN6AfxjuR0xSfyMTPSlg%3D%3D/tags"
+    url = "https://api.kimola.com/v1/cognitive/Models/{secret key}/tags"
 
     payload={}
     headers = {
-      'Authorization': 'Bearer 8onLyA9zvJqo4d4A8NCaAA=='
+      'Authorization': 'Bearer {key}'
     }
 
     response = requests.request("GET", url, headers=headers, data=payload)
