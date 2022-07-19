@@ -96,7 +96,7 @@ This endpoint returns all matching results when the request is sent and it provi
   
 | Parameter       | Type     | Required?            | Place                        |       Definition                                       |
 | -------------   |----------|----------------------|------------------------------|--------------------------------------------------------|
-| `secret`        | String   | required             | Path                         |       The Secret value of the data model.              |
+| `secret key`    | String   | required             | Path                         |       The Secret value of the data model.              |
 | `text`          | String   | not required         | Query                        |       Text block to analyze by using the data model.   |
 | `strict`        | Boolean  | not required         | Query                        |       Search in a strict mode.                         |
 
@@ -174,7 +174,7 @@ This endpoint returns all matching results when the request is sent and it provi
  
 | Parameter       | Type     | Required?            | Place                  |       Definition                    |
 | -------------   |----------|----------------------|------------------------|-------------------------------------|
-| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
+| `secret key`    | string   |  required            | Path                   | The Secret value of the data model. |
 
   ##### Example Request URL:  
    `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
@@ -256,16 +256,16 @@ This endpoint returns all matching results when the request is sent and it provi
  
 | Parameter       | Type     | Required?            | Place                  |       Definition                    |
 | -------------   |----------|----------------------|------------------------|-------------------------------------|
-| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
+| `secret key`    | string   |  required            | Path                   | The Secret value of the data model. |
 
   ##### Example Request URL:  
-   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
+   `https://api.kimola.com/v1/cognitive/Models/{secret key}/tags`
   
   ##### Example Request:
   
   ```
   curl -X 'POST' \
-    'https://api.kimola.com/v1/cognitive/Models/{secret}/tags' \
+    'https://api.kimola.com/v1/cognitive/Models/{secret key}/tags' \
     -H 'accept: */*' \
     -H 'Authorization: Bearer {key}' \
     -H 'Content-Type: application/json-patch+json' \
@@ -347,7 +347,7 @@ This endpoint returns all matching results when the request is sent and it provi
 
 
   ##### Example Request URL:  
-   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
+   `https://api.kimola.com/v1/cognitive/Models/{code}/{language}/tags?text={text}`
   
   ##### Example Request:
   
