@@ -342,7 +342,7 @@ This endpoint returns all matching results when the request is sent and it provi
 | `code`          | string($uuid)   |  required            | Path                   | The Code value of the pre-built model.         |
 | `language`      | string          |  required            | Path                   | the language you want to see the result in     |
 | `text`          | string          |  not required        | Query                  | Text block to analyze by using the data model. |
-| `strict`        | boolean         |  not required        | Query                  |                                                |
+| `strict`        | boolean         |  not required        | Query                  | Search in a strict mode.                    |
 
 
 
