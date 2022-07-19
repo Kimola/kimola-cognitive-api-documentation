@@ -89,7 +89,7 @@ You can have multiple endpoints that refer to the same resource. Here’s one va
   Custom models are the name given to the user-created models that you access in the desktop models menu.
   Pre-built models are the predefined models listed on the gallery page.
   
-  One of the path parameters you can use to request endpoints is the secret key. After going to the overview page of a selected model on the Models page, you can find the Secret at the top left.
+  One of the path parameters you can use to request endpoints is the secret. After going to the overview page of a selected model on the Models page, you can find the Secret at the top left.
 
 ### 3.1. Getting Custom Model Predictions: 
  
