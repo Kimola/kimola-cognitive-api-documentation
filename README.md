@@ -211,7 +211,7 @@ This endpoint returns all matching results when the request is sent and it provi
   <details><summary>Request Examples in C#</summary>
   
   ```
-    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}/tags");
+    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret}/tags");
     client.Timeout = -1;
     var request = new RestRequest(Method.POST);
     request.AddHeader("Authorization", "Bearer {key}");
