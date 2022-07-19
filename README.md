@@ -23,7 +23,7 @@
    
    The API accepts JSON or form-encoded content in requests and returns JSON content in all of its responses, including errors. Only the UTF-8 character encoding is supported for both requests and responses.
    
-  For example, if we want to examine this url: `https://api.kimola.com/v1/cognitive/Models/{secret key}/tags?text=hello&strict=false`
+  For example, if we want to examine this url: `https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false`
   
   * The base path (or base URL or host) refers to the common path for the API. In the example above, the base path is `https://api.kimola.com/v1/cognitive` 
   * The endpoint refers to the end path of the endpoint. In the example above, `/models`
@@ -88,6 +88,8 @@ You can have multiple endpoints that refer to the same resource. Here’s one va
   
   Custom models are the name given to the user-created models that you access in the desktop models menu.
   Pre-built models are the predefined models listed on the gallery page.
+  
+  One of the path parameters you can use to request endpoints is the secret key. After going to the overview page of a selected model on the Models page, you can find the Secret at the top left.
 
 ### 3.1. Getting Custom Model Predictions: 
  
@@ -96,7 +98,7 @@ This endpoint returns all matching results when the request is sent and it provi
   
 | Parameter       | Type     | Required?            | Place                        |       Definition                                       |
 | -------------   |----------|----------------------|------------------------------|--------------------------------------------------------|
-| `secret key`    | String   | required             | Path                         |       The Secret value of the data model.              |
+| `secret`        | String   | required             | Path                         |       The Secret value of the data model.              |
 | `text`          | String   | not required         | Query                        |       Text block to analyze by using the data model.   |
 | `strict`        | Boolean  | not required         | Query                        |       Search in a strict mode.                         |
 
@@ -136,7 +138,7 @@ This endpoint returns all matching results when the request is sent and it provi
    <details><summary>Request Examples in C#</summary>
 
     ```
-      var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}/tags");
+      var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret}/tags");
       client.Timeout = -1;
       var request = new RestRequest(Method.GET);
       request.AddHeader("Authorization", "Bearer {key}");
@@ -151,7 +153,7 @@ This endpoint returns all matching results when the request is sent and it provi
   ```
     import requests
 
-    url = "https://api.kimola.com/v1/cognitive/Models/{secret key}/tags"
+    url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags"
 
     payload={}
     headers = {
@@ -174,7 +176,7 @@ This endpoint returns all matching results when the request is sent and it provi
  
 | Parameter       | Type     | Required?            | Place                  |       Definition                    |
 | -------------   |----------|----------------------|------------------------|-------------------------------------|
-| `secret key`    | string   |  required            | Path                   | The Secret value of the data model. |
+| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
 
   ##### Example Request URL:  
    `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
@@ -233,7 +235,7 @@ This endpoint returns all matching results when the request is sent and it provi
     import requests
     import json
 
-    url = "https://api.kimola.com/v1/cognitive/Models/{secret key}/tags"
+    url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags"
 
     payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  }\n]'"
     headers = {
@@ -256,16 +258,16 @@ This endpoint returns all matching results when the request is sent and it provi
  
 | Parameter       | Type     | Required?            | Place                  |       Definition                    |
 | -------------   |----------|----------------------|------------------------|-------------------------------------|
-| `secret key`    | string   |  required            | Path                   | The Secret value of the data model. |
+| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
 
   ##### Example Request URL:  
-   `https://api.kimola.com/v1/cognitive/Models/{secret key}/tags`
+   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
   
   ##### Example Request:
   
   ```
   curl -X 'POST' \
-    'https://api.kimola.com/v1/cognitive/Models/{secret key}/tags' \
+    'https://api.kimola.com/v1/cognitive/Models/{secret}/tags' \
     -H 'accept: */*' \
     -H 'Authorization: Bearer {key}' \
     -H 'Content-Type: application/json-patch+json' \
@@ -291,7 +293,7 @@ This endpoint returns all matching results when the request is sent and it provi
   <details><summary>Request Examples in C#</summary>
   
   ```
-    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}/tags");
+    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret}/tags");
     client.Timeout = -1;
     var request = new RestRequest(Method.POST);
     request.AddHeader("Authorization", "Bearer {key}");
@@ -315,7 +317,7 @@ This endpoint returns all matching results when the request is sent and it provi
     import requests
     import json
 
-    url = "https://api.kimola.com/v1/cognitive/Models/{secret key}/tags"
+    url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags"
 
     payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  }\n]'"
     headers = {
@@ -426,7 +428,7 @@ This endpoint returns all matching results when the request is sent and it provi
   ##### Example Request:
   ```
   curl --location 
-  --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret key}' \
+  --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret}' \
   --header 'Authorization: Bearer {key}'
   ```
   
@@ -451,7 +453,7 @@ This endpoint returns all matching results when the request is sent and it provi
   <details><summary>Request Examples in C#</summary>
   
   ```
-  var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret key}");
+  var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret}");
   client.Timeout = -1;
   var request = new RestRequest(Method.GET);
   request.AddHeader("Authorization", "Bearer {key}");
@@ -466,7 +468,7 @@ This endpoint returns all matching results when the request is sent and it provi
   ```
     import requests
 
-    url = "https://api.kimola.com/v1/cognitive/Models/{secret key}"
+    url = "https://api.kimola.com/v1/cognitive/Models/{secret}"
 
     payload={}
     headers = {
