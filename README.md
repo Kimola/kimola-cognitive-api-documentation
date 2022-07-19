@@ -29,8 +29,6 @@
   * The endpoint refers to the end path of the endpoint. In the example above, `/models`
   * The `?text=hello&strict=false` part of the endpoint contains query string parameters for the endpoint.
 
-You can have multiple endpoints that refer to the same resource. Here’s one variation:
-
   #### Notes on Pagination:
   Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:
   The application can use to indicate the page size(the number of items to return in the response) and the page index(index of the first item you want    results for). 
