@@ -209,6 +209,7 @@ This endpoint returns all matching results when the request is sent and it provi
   <details><summary>Request Examples in C#</summary>
   
   ```
+    using RestSharp;
     var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret}/tags");
     var request = new RestRequest();
     request.AddHeader("Authorization", "Bearer {key}");
@@ -290,10 +291,10 @@ This endpoint returns all matching results when the request is sent and it provi
   <details><summary>Request Examples in C#</summary>
   
   ```
-    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret}/tags");
-    client.Timeout = -1;
-    var request = new RestRequest(Method.POST);
-    request.AddHeader("Authorization", "Bearer {key}");
+    using RestSharp;
+    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/kkGN6AfxjuR0xSfyMTPSlg%3D%3D/tags");
+    var request = new RestRequest();
+    request.AddHeader("Authorization", "Bearer QQGDO5mEbjp1yCjWnx9TuA==");
     request.AddHeader("Content-Type", "application/json");
     var body = @"[" + "\n" +
     @"  {" + "\n" +
@@ -301,8 +302,8 @@ This endpoint returns all matching results when the request is sent and it provi
     @"    ""text"": ""I love this game""" + "\n" +
     @"  }" + "\n" +
     @"]'";
-    request.AddParameter("application/json", body,  ParameterType.RequestBody);
-    IRestResponse response = client.Execute(request);
+    request.AddParameter("application/json", body, ParameterType.RequestBody);
+    var response = client.Execute(request);
     Console.WriteLine(response.Content);
   ```
   
