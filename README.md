@@ -28,6 +28,12 @@
   * The base path (or base URL or host) refers to the common path for the API. In the example above, the base path is `https://api.kimola.com/v1/cognitive` 
   * The endpoint refers to the end path of the endpoint. In the example above, `/models`
   * The `?text=hello&strict=false` part of the endpoint contains query string parameters for the endpoint.
+  
+  #### Batch API's:
+
+The maximum number of actions allowed in a single batch request is 100.
+There are many cases where you want to accomplish a variety of work in the Kimola Cogntive API but want to minimize the number of HTTP requests you make. To make development easier, Kimola provides a batch API that enables developers to perform multiple “actions” by making only a single HTTP request.
+
 
   #### Notes on Pagination:
   Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:
@@ -579,7 +585,3 @@ This endpoint returns all matching results when the request is sent and it provi
   
   Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response. Please make sure that the id you enter is unique.
   
-
-  Batch input size must be lower than 100.
-The maximum number of actions allowed in a single batch request is 100.
-There are many cases where you want to accomplish a variety of work in the Kimola Cogntive API but want to minimize the number of HTTP requests you make. To make development easier, Kimola provides a batch API that enables developers to perform multiple “actions” by making only a single HTTP request.
