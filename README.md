@@ -380,10 +380,9 @@ This endpoint returns all matching results when the request is sent and it provi
   
   ```
   var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{code}/en/tags?text=hello");
-  client.Timeout = -1;
-  var request = new RestRequest(Method.POST);
+  var request = new RestRequest();
   request.AddHeader("Authorization", "Bearer {key}");
-  IRestResponse response = client.Execute(request);
+  var response = client.Execute(request);
   Console.WriteLine(response.Content);
   ```
   
@@ -451,11 +450,11 @@ This endpoint returns all matching results when the request is sent and it provi
   <details><summary>Request Examples in C#</summary>
   
   ```
+  using RestSharp;
   var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret}");
-  client.Timeout = -1;
-  var request = new RestRequest(Method.GET);
+  var request = new RestRequest();
   request.AddHeader("Authorization", "Bearer {key}");
-  IRestResponse response = client.Execute(request);
+  var response = client.Execute(request);
   Console.WriteLine(response.Content);
   ```
   
@@ -539,11 +538,11 @@ This endpoint returns all matching results when the request is sent and it provi
   <details><summary>Request Examples in C#</summary>
   
   ```
+  using RestSharp;
   var client = new RestClient("https://api.kimola.com/v1/cognitive/Models");
-  client.Timeout = -1;
-  var request = new RestRequest(Method.GET);
+  var request = new RestRequest();
   request.AddHeader("Authorization", "Bearer {key}");
-  IRestResponse response = client.Execute(request);
+  var response = client.Execute(request);
   Console.WriteLine(response.Content);
   ```
   
