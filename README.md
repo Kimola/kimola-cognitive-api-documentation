@@ -35,7 +35,7 @@ There are many cases where you want to accomplish a variety of work in the Kimol
 
 
   #### Notes on Pagination:
-  <font size="1">
+  <font size="0.5">
   Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:
   The application can use to indicate the page size(the number of items to return in the response) and the page index(index of the first item you want    results for). 
   </font>
