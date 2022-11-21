@@ -579,4 +579,4 @@ This endpoint returns all matching results when the request is sent and it provi
 
   Batch input size must be lower than 100.
 The maximum number of actions allowed in a single batch request is 100.
-There are many cases where you want to accomplish a variety of work in the Asana API but want to minimize the number of HTTP requests you make. To make development easier, Kimola provides a batch API that enables developers to perform multiple “actions” by making only a single HTTP request.
+There are many cases where you want to accomplish a variety of work in the Kimola Cogntive API but want to minimize the number of HTTP requests you make. To make development easier, Kimola provides a batch API that enables developers to perform multiple “actions” by making only a single HTTP request.
