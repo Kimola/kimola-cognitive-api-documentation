@@ -210,8 +210,7 @@ This endpoint returns all matching results when the request is sent and it provi
   
   ```
     var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret}/tags");
-    client.Timeout = -1;
-    var request = new RestRequest(Method.POST);
+    var request = new RestRequest();
     request.AddHeader("Authorization", "Bearer {key}");
     request.AddHeader("Content-Type", "application/json");
     var body = @"[" + "\n" +
@@ -220,8 +219,8 @@ This endpoint returns all matching results when the request is sent and it provi
     @"    ""text"": ""I love this game""" + "\n" +
     @"  }" + "\n" +
     @"]'";
-    request.AddParameter("application/json", body,  ParameterType.RequestBody);
-    IRestResponse response = client.Execute(request);
+    request.AddParameter("application/json", body, ParameterType.RequestBody);
+    var response = client.Execute(request);
     Console.WriteLine(response.Content);
   ```
   
