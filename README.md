@@ -103,7 +103,7 @@ There are many cases where you want to accomplish a variety of work in the Kimol
 
 ### 3.1. Getting Custom Model Predictions: 
  
-This endpoint returns all matching results when the request is sent and it provides the analysis results of a text block as a list of matching tags with their probabilities.
+This endpoint returns all matching results when the request is sent and it provides the analysis results of a text block as a list of matching tags with their probabilities. 
 
   
 | Parameter       | Type     | Required?            | Place                        |       Definition                                       |
