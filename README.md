@@ -38,7 +38,9 @@
   
   #### Language Support
   
-  The Kimola Cognitive API supports a variety of languages. These languages are specified within a request using the language parameter.
+  The Kimola Cognitive API supports a variety of languages. These languages are specified within a request using the language parameter. Kimola uses the     languages it supports, the notation of ISO [639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) codes with 2-letter notation. ISO 639 is a     standardized nomenclature used to classify languages. Each language is assigned a two-letter (639-1).
+  
+  For example, when you want to choose Spanish, es, which corresponds to 2 letters, should be selected as the language code.
   
   #### Developer agreement
 
@@ -576,9 +578,6 @@ This endpoint returns all matching results when the request is sent and it provi
   It lists all the categories that may contain the word and the probability of being in those categories.
   
   Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response. Please make sure that the id you enter is unique.
-  
-  Kimola uses the languages it supports, the notation of ISO [639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) codes with 2-letter notation. ISO 639 is a standardized nomenclature used to classify languages. Each language is assigned a two-letter (639-1).
-  For example, when you want to choose Spanish, es, which corresponds to 2 letters, should be selected as the language code.
   
 
   Batch input size must be lower than 100.
