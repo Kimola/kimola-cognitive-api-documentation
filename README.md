@@ -36,6 +36,10 @@
   For example, if we want to examine this url:  `https://api.kimola.com/v1/cognitive/Models?pageIndex=0&pageSize=10`
   * In the example above, this endpoint would get the "models" resource and limit the result to 10 models with page index 0.
   
+  ####Language Support
+  
+  The Kimola Cognitive API supports a variety of languages. These languages are specified within a request using the language parameter.
+  
   #### Developer agreement
 
   By using Kimola Cognitive’s API, you agree to our [terms of service](https://kimola.com/terms-of-service).
