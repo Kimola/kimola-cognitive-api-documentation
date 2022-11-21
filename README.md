@@ -391,6 +391,7 @@ This endpoint returns all matching results when the request is sent and it provi
   <details><summary>Request Examples in C#</summary>
   
   ```
+  using RestSharp;
   var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{code}/en/tags?text=hello");
   var request = new RestRequest();
   request.AddHeader("Authorization", "Bearer {key}");
