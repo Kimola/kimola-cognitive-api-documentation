@@ -1,8 +1,7 @@
 # Kimola Cognitive’s API documentation
+This repository contains the documentation for [Kimola Cognitive](https://cognitive.kimola.com)’s API.
 
-  
-  <span style="font-family:Papyrus; font-size:1em;">This repository contains the documentation for [Kimola Cognitive](https://cognitive.kimola.com)’s API.</span>
-  #### Contents
+#### Contents
 
   - [Overview](#1-overview)
   - [Authentication](#2-authentication)
