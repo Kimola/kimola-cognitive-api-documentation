@@ -38,7 +38,7 @@
   
   #### Language Support
   
-  The Kimola Cognitive API supports a variety of languages. These languages are specified within a request using the language parameter. Kimola uses the     languages it supports, the notation of ISO [639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) codes with 2-letter notation. ISO 639 is a     standardized nomenclature used to classify languages. Each language is assigned a two-letter (639-1).
+  The Kimola Cognitive API supports a variety of languages. These languages are specified within a request using the language parameter. Kimola uses the     languages it supports, the notation of [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) codes with 2-letter notation. ISO 639 is a     standardized nomenclature used to classify languages. Each language is assigned a two-letter (639-1).
   
   For example, when you want to choose Spanish, es, which corresponds to 2 letters, should be selected as the language code.
   
