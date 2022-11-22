@@ -273,52 +273,139 @@ Even if the id you send to this method is not null or unique, you will not get a
  
  This method provides the analysis result of a text block top most matching tag with its probability.
  
-| Parameter       | Type     | Required?            | Place                  |       Definition                    |
-| -------------   |----------|----------------------|------------------------|-------------------------------------|
-| `secret`        | string   |  required            | Path                   | The Secret value of the data model. |
+| Parameter       | Type            | Required?            | Place                  |       Definition                               |
+| ----------------|-----------------|----------------------|------------------------|------------------------------------------------|
+| `code`          | string($uuid)   |  required            | Path                   | The Code value of the pre-built model.         |
+| `language`      | string          |  required            | Path                   | the language you want to see the result in     |
+| `text`          | string          |  not required        | Query                  | Text block to analyze by using the data model. |
+| `strict`        | boolean         |  not required        | Query                  | Search in a strict mode.                       |
+
 
   ##### Example Request URL:  
-   `https://api.kimola.com/v1/cognitive/Models/{secret}/tags`
+    `https://api.kimola.com/v1/cognitive/Models/{code}/{language}/tags?text={text}&strict=false`
+
+  ##### Example Request:
+     
+  ```
+   curl -X 'GET' \
+  'https://api.kimola.com/v1/cognitive/Models/{secret}/en/tags?text=hello&strict=false' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer {key}'
+  ```
+ 
+  ##### Example Response:
+   
+  ```
+    [
+      {
+        "name": "...",
+        "probability": 0.92
+      },
+      {
+        "name": "...",
+        "probability": 0.07
+      },
+      {
+        "name": "...",
+        "probability": 0.01
+      }
+    ]
+  ```
+  <details><summary>Request Examples in C#</summary>
+  
+  ```
+  using RestSharp;
+  var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{code}/en/tags?text=hello&strict=false");
+  var request = new RestRequest();
+  request.AddHeader("Authorization", "Bearer {key}");
+  var response = client.Execute(request);
+  Console.WriteLine(response.Content);
+  ```
+  
+  </details>
+  
+  <details><summary>Request Examples in Python</summary>
+  
+  ```
+  import requests
+
+  url = "https://api.kimola.com/v1/cognitive/Models/{code}/en/tags?text=hello&strict=false"
+  payload={}
+  headers = {
+    'Authorization': 'Bearer {key}'
+  }
+  response = requests.request("POST", url, headers=headers, data=payload)
+  print(response.text)
+  ```
+  
+  </details>
+  
+  
+ ### 3.4. Getting Pre-Built Model Predictions(Batch): 
+ 
+  This method provides the analysis results of a text block as a list of matching tags with their probabilities. Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response. Please make sure that the id you enter is unique.
+ 
+| Parameter       | Type            | Required?            | Place                  |       Definition                               |
+| ----------------|-----------------|----------------------|------------------------|------------------------------------------------|
+| `code`          | string($uuid)   |  required            | Path                   | The Code value of the pre-built model.         |
+| `language`      | string          |  required            | Path                   | the language you want to see the result in     |
+
+
+  ##### Example Request URL:  
+   `https://api.kimola.com/v1/cognitive/Models/{code}/{language}/tags?text={text}`
   
   ##### Example Request:
   
   ```
-  curl -X 'POST' \
-    'https://api.kimola.com/v1/cognitive/Models/{secret}/tags' \
+    curl -X 'POST' \
+    'https://api.kimola.com/v1/cognitive/Models/{code}/en/tags' \
     -H 'accept: */*' \
     -H 'Authorization: Bearer {key}' \
     -H 'Content-Type: application/json-patch+json' \
     -d '[
     {
-      "id": "...",
-      "text": "..."
+      "id": "0",
+      "text": "I love this game"
+    },
+   {
+      "id": "1",
+      "text": "The game is too slow"
     }
-  ]'
+    ]'
   ```
   
-   ##### Example Response:
+  ##### Example Response:
    
   ```
   [
-    {
-      "id": "...",
-      "label": "...",
-      "probability": 0.96
-    }
-  ]
+  {
+    "id": "0",
+    "label": "Others",
+    "probability": 0.74
+  },
+  {
+    "id": "1",
+    "label": "Technical Issues",
+    "probability": 0.85
+  }
+]
   ```
   <details><summary>Request Examples in C#</summary>
   
   ```
     using RestSharp;
-    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/kkGN6AfxjuR0xSfyMTPSlg%3D%3D/tags");
+    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{code}/tags");
     var request = new RestRequest();
-    request.AddHeader("Authorization", "Bearer QQGDO5mEbjp1yCjWnx9TuA==");
+    request.AddHeader("Authorization", "Bearer {key}");
     request.AddHeader("Content-Type", "application/json");
     var body = @"[" + "\n" +
     @"  {" + "\n" +
     @"    ""id"": ""0""," + "\n" +
     @"    ""text"": ""I love this game""" + "\n" +
+    @"  }" + "\n" +
+    @"  {" + "\n" +
+    @"    ""id"": ""1""," + "\n" +
+    @"    ""text"": ""The game is too slow""" + "\n" +
     @"  }" + "\n" +
     @"]'";
     request.AddParameter("application/json", body, ParameterType.RequestBody);
@@ -335,7 +422,7 @@ Even if the id you send to this method is not null or unique, you will not get a
     import json
 
     url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags"
-    payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  }\n]'"
+payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  },{\n    \"id\": \"1\",\n    \"text\": \"The game is too slow\"\n  }\n]'"
     headers = {
       'Authorization': 'Bearer {key}',
       'Content-Type': 'application/json'
@@ -346,82 +433,6 @@ Even if the id you send to this method is not null or unique, you will not get a
   ```
   
   </details>
-  
- 
- 
- ### 3.4. Getting Pre-Built Model Predictions(Batch): 
- 
-  This method provides the analysis results of a text block as a list of matching tags with their probabilities. Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response. Please make sure that the id you enter is unique.
- 
-| Parameter       | Type            | Required?            | Place                  |       Definition                               |
-| ----------------|-----------------|----------------------|------------------------|------------------------------------------------|
-| `code`          | string($uuid)   |  required            | Path                   | The Code value of the pre-built model.         |
-| `language`      | string          |  required            | Path                   | the language you want to see the result in     |
-| `text`          | string          |  not required        | Query                  | Text block to analyze by using the data model. |
-| `strict`        | boolean         |  not required        | Query                  | Search in a strict mode.                       |
-
-
-
-  ##### Example Request URL:  
-   `https://api.kimola.com/v1/cognitive/Models/{code}/{language}/tags?text={text}`
-  
-  ##### Example Request:
-  
-  ```
-  curl -X 'GET' \
-  'https://api.kimola.com/v1/cognitive/Models/{code}/en/tags?text=hello \
-  -H 'accept: */*' \
-  -H 'Authorization: Bearer {key}'
-  ```
-  
-   ##### Example Response:
-   
-  ```
-[
-  {
-    "name": "...",
-    "probability": 0.92
-  },
-  {
-    "name": "...",
-    "probability": 0.07
-  },
-  {
-    "name": "...",
-    "probability": 0.01
-  }
-]
-  ```
-  <details><summary>Request Examples in C#</summary>
-  
-  ```
-  using RestSharp;
-  var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{code}/en/tags?text=hello");
-  var request = new RestRequest();
-  request.AddHeader("Authorization", "Bearer {key}");
-  var response = client.Execute(request);
-  Console.WriteLine(response.Content);
-  ```
-  
-  </details>
-  
-  <details><summary>Request Examples in Python</summary>
-  
-  ```
-  import requests
-
-  url = "https://api.kimola.com/v1/cognitive/Models/{code}/en/tags?text=hello"
-  payload={}
-  headers = {
-    'Authorization': 'Bearer {key}'
-  }
-  response = requests.request("POST", url, headers=headers, data=payload)
-  print(response.text)
-  ```
-  
-  </details>
-  
- 
  
  ### 3.5. Getting Model Details: 
  
