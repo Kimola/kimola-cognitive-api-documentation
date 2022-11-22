@@ -101,7 +101,7 @@ There are many cases where you want to accomplish a variety of work in the Kimol
   
   One of the path parameters you can use to request endpoints is the secret. After going to the overview page of a selected model on the Models page, you can find the Secret at the top left.
 
-### 3.1. Getting Custom Model Predictions: 
+### 3.1. Getting Custom Model Predictions 
  
 This endpoint returns all matching tags with their probabilities of a single text block. The JSON results are sorted by probability value, so the top match result comes first.
 
@@ -176,7 +176,7 @@ This endpoint returns all matching tags with their probabilities of a single tex
   
   </details>
   
- ### 3.2. Getting Custom Model Predictions(Batch): 
+ ### 3.2. Getting Custom Model Predictions (Batch) 
  
   This endpoint creates a new record that belongs to a data model. Each time you create a record, you are actually training the parent data model.
 Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response. Please make     sure that the id you enter is unique.
@@ -269,7 +269,7 @@ Even if the id you send to this method is not null or unique, you will not get a
   </details>
   
  
- ### 3.3. Getting Pre-Built Model Predictions: 
+ ### 3.3. Getting Pre-Built Model Predictions 
  
  This method provides the analysis result of a text block top most matching tag with its probability.
  
@@ -341,7 +341,7 @@ Even if the id you send to this method is not null or unique, you will not get a
   </details>
   
   
- ### 3.4. Getting Pre-Built Model Predictions(Batch): 
+ ### 3.4. Getting Pre-Built Model Predictions (Batch) 
  
   This method provides the analysis results of a text block as a list of matching tags with their probabilities. Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response. Please make sure that the id you enter is unique.
  
@@ -434,7 +434,7 @@ Even if the id you send to this method is not null or unique, you will not get a
   
   </details>
  
- ### 3.5. Getting Model Details: 
+ ### 3.5. Getting Model Details 
  
   This endpoint provides details of a data model.
   
@@ -500,7 +500,7 @@ Even if the id you send to this method is not null or unique, you will not get a
   
   </details>
 
- ### 3.6. Listing All Models: 
+ ### 3.6. Listing All Models 
  
    This endpoints provides the list of data models.
   - The base URI for all Web API requests is: `https://api.kimola.com/v1/cognitive/Models`
