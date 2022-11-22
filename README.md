@@ -122,8 +122,8 @@ This endpoint returns all matching results when the request is sent and it provi
   
     ```
     curl --location 
-    --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false' \
-    --header 'Authorization: Bearer {key}'
+      --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false' \
+      --header 'Authorization: Bearer {key}'
     ```
   
    ##### Example Response:
