@@ -28,13 +28,13 @@ This repository contains the documentation for [Kimola Cognitive](https://cognit
   * The endpoint refers to the end path of the endpoint. In the example above, `/models`
   * The `?text=hello&strict=false` part of the endpoint contains query string parameters for the endpoint.
   
-  #### Batch API's:
+  ### Batch API's:
 
 The maximum number of actions allowed in a single batch request is 100.
 There are many cases where you want to accomplish a variety of work in the Kimola Cogntive API but want to minimize the number of HTTP requests you make. To make development easier, Kimola provides a batch API that enables developers to perform multiple “actions” by making only a single HTTP request.
 
 
-  #### Notes on Pagination:
+  ### Notes on Pagination:
   
   Any API response which contains multiple resources supports several common query parameters to handle paging through the response data:
   The application can use to indicate the page size(the number of items to return in the response) and the page index(index of the first item you want    results for). 
@@ -42,13 +42,13 @@ There are many cases where you want to accomplish a variety of work in the Kimol
   For example, if we want to examine this url:  `https://api.kimola.com/v1/cognitive/Models?pageIndex=0&pageSize=10`
   * In the example above, this endpoint would get the "models" resource and limit the result to 10 models with page index 0.
   
-  #### Language Support
+  ### Language Support
   
   The Kimola Cognitive API supports a variety of languages. These languages are specified within a request using the language parameter. Kimola uses the     languages it supports, the notation of [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) codes with 2-letter notation. ISO 639 is a     standardized nomenclature used to classify languages. Each language is assigned a two-letter (639-1).
   
   For example, when you want to choose Spanish, es, which corresponds to 2 letters, should be selected as the language code.
   
-  #### Developer agreement
+  ### Developer agreement
 
   By using Kimola Cognitive’s API, you agree to our [terms of service](https://kimola.com/terms-of-service).
 
