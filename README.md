@@ -97,7 +97,7 @@ There are many cases where you want to accomplish a variety of work in the Kimol
   |   DELETE         |	Deletes resources                                           |
   
   Custom models are the name given to the user-created models you access in the left menu on your dashboard.
-  Pre-built models are the predefined models listed on the gallery page.
+  Pre-built models are the predefined models listed on the [gallery page](https://kimola.com/cognitive/gallery ).
   
   One of the path parameters you can use to request endpoints is the secret. After going to the overview page of a selected model on the Models page, you can find the Secret at the top left.
 
