@@ -296,20 +296,20 @@ Even if the id you send to this method is not null or unique, you will not get a
   ##### Example Response:
    
   ```
-    [
-      {
-        "name": "...",
-        "probability": 0.92
-      },
-      {
-        "name": "...",
-        "probability": 0.07
-      },
-      {
-        "name": "...",
-        "probability": 0.01
-      }
-    ]
+  [
+    {
+      "name": "Others",
+      "probability": 1
+    },
+    {
+      "name": "Pricing",
+      "probability": 0
+    },
+    {
+      "name": "Technical Issues",
+      "probability": 0
+    }
+  ]
   ```
   <details><summary>Request Examples in C#</summary>
   
