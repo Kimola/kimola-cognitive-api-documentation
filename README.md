@@ -121,31 +121,30 @@ This endpoint returns all matching results when the request is sent and it provi
    ##### Example Request:
   
     ```
-   curl -X 'GET' \
-  'https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false' \
-  -H 'accept: */*' \
-  -H 'Authorization: Bearer {key}'
+     curl -X 'GET' \
+    'https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false' \
+    -H 'accept: */*' \
+    -H 'Authorization: Bearer {key}'
 
     ```
   
    ##### Example Response:
 
     ```
-  [
-    {
-        "name": "...",
-        "probability": 0.8
-    },
-    {
-        "name": "...",
-        "probability": 0.11
-    },
-    {
-        "name": "...",
-        "probability": 0.04
-    }
-  ]
-
+    [
+      {
+          "name": "...",
+          "probability": 0.8
+      },
+      {
+          "name": "...",
+          "probability": 0.11
+      },
+      {
+          "name": "...",
+          "probability": 0.04
+      }
+    ]
     ```
     
    <details><summary>Request Examples in C#</summary>
