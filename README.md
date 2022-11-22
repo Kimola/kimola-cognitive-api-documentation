@@ -161,18 +161,14 @@ This endpoint returns all matching results when the request is sent and it provi
   <details><summary>Request Examples in Python</summary>
   
   ```
-    import requests
-
-    url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags"
-
-    payload={}
-    headers = {
-      'Authorization': 'Bearer {key}'
-    }
-
-    response = requests.request("GET", url, headers=headers, data=payload)
-
-    print(response.text)
+  import requests
+  url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false"
+  payload={}
+  headers = {
+    'Authorization': 'Bearer {key}'
+  }
+  response = requests.request("GET", url, headers=headers, data=payload)
+  print(response.text)
 
   ```
   
@@ -244,9 +240,8 @@ This endpoint returns all matching results when the request is sent and it provi
   ```
     import requests
     import json
-
+  
     url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags"
-
     payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  }\n]'"
     headers = {
       'Authorization': 'Bearer {key}',
@@ -328,15 +323,12 @@ This endpoint returns all matching results when the request is sent and it provi
     import json
 
     url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags"
-
     payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  }\n]'"
     headers = {
       'Authorization': 'Bearer {key}',
       'Content-Type': 'application/json'
     }
-
     response = requests.request("POST", url, headers=headers, data=payload)
-
     print(response.text)
 
   ```
@@ -407,17 +399,12 @@ This endpoint returns all matching results when the request is sent and it provi
   import requests
 
   url = "https://api.kimola.com/v1/cognitive/Models/{code}/en/tags?text=hello"
-
   payload={}
   headers = {
     'Authorization': 'Bearer {key}'
   }
-
   response = requests.request("POST", url, headers=headers, data=payload)
-
   print(response.text)
-
-
   ```
   
   </details>
@@ -479,14 +466,11 @@ This endpoint returns all matching results when the request is sent and it provi
     import requests
 
     url = "https://api.kimola.com/v1/cognitive/Models/{secret}"
-
     payload={}
     headers = {
       'Authorization': 'Bearer {key}'
     }
-
     response = requests.request("GET", url, headers=headers, data=payload)
-
     print(response.text)
   
   ```
@@ -567,14 +551,11 @@ This endpoint returns all matching results when the request is sent and it provi
     import requests
 
     url = "https://api.kimola.com/v1/cognitive/Models"
-
     payload={}
     headers = {
       'Authorization': 'Bearer {key}'
     }
-
     response = requests.request("GET", url, headers=headers, data=payload)
-
     print(response.text)
   
   ```
