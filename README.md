@@ -92,7 +92,7 @@ There are many cases where you want to accomplish a variety of work in the Kimol
   |   METHOD         |  ACTION                                                      |
   |------------------|--------------------------------------------------------------|
   |   GET            |	Retrieves resources                                         |
-  |   POST           |	Creates resources                                           |
+  |   POST           |	Creates resources or adds to collections                    |
   |   PUT            |	Changes and/or replaces resources or collections            |
   |   DELETE         |	Deletes resources                                           |
   
