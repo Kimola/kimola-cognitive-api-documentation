@@ -422,7 +422,7 @@ Even if the id you send to this method is not null or unique, you will not get a
     import json
 
     url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags"
-payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  },{\n    \"id\": \"1\",\n    \"text\": \"The game is too slow\"\n  }\n]'"
+    payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  },{\n    \"id\": \"1\",\n    \"text\": \"The game is too slow\"\n  }\n]'"
     headers = {
       'Authorization': 'Bearer {key}',
       'Content-Type': 'application/json'
