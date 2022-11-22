@@ -584,8 +584,4 @@ Even if the id you send to this method is not null or unique, you will not get a
   ```
   
   </details>
-  
-  
-  
-  Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response. Please make sure that the id you enter is unique.
-  
+ 
