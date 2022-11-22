@@ -65,11 +65,9 @@ There are many cases where you want to accomplish a variety of work in the Kimol
   The key should be provided in the Authorization header:
 
   ```
-  
     curl --location 
     --request GET 'https://api.kimola.com/v1/cognitive/Models' \
     --header 'Authorization: Bearer {key}'
-    
   ```
   <details><summary>What is curl?</summary>
      curl (short for "Client URL") is a command line tool that enables data transfer over various network protocols. It communicates with a web or       application server by specifying a relevant URL and the data that need to be sent or received. 
@@ -123,17 +121,15 @@ This endpoint returns all matching results when the request is sent and it provi
    ##### Example Request:
   
     ```
-    
     curl --location 
-      --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false' \
-      --header 'Authorization: Bearer {key}'
-    
+    --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false' \
+    --header 'Authorization: Bearer {key}'
+
     ```
   
    ##### Example Response:
 
     ```
-    
     [
       {
           "name": "...",
