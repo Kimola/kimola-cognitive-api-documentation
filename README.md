@@ -103,7 +103,7 @@ There are many cases where you want to accomplish a variety of work in the Kimol
 
 ### 3.1. Getting Custom Model Predictions: 
  
-This endpoint returns all matching results when the request is sent and it provides the analysis results of a text block as a list of matching tags with their probabilities. When the result comes, top match result comes. It lists all the categories that may contain the word and the probability of being in those categories.
+This endpoint returns all matching tags with their probabilities of a single text block. The JSON results are sorted by probability value, so the top match result comes first.
 
   
 | Parameter       | Type     | Required?            | Place                        |       Definition                                       |
