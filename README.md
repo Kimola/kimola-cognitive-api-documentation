@@ -65,9 +65,9 @@ There are many cases where you want to accomplish a variety of work in the Kimol
   The key should be provided in the Authorization header:
 
   ```
-  curl --location 
-  --request GET 'https://api.kimola.com/v1/cognitive/Models' \
-  --header 'Authorization: Bearer {key}'
+    curl --location 
+    --request GET 'https://api.kimola.com/v1/cognitive/Models' \
+    --header 'Authorization: Bearer {key}'
   ```
   <details><summary>What is curl?</summary>
      curl (short for "Client URL") is a command line tool that enables data transfer over various network protocols. It communicates with a web or       application server by specifying a relevant URL and the data that need to be sent or received. 
@@ -103,7 +103,7 @@ There are many cases where you want to accomplish a variety of work in the Kimol
 
 ### 3.1. Getting Custom Model Predictions: 
  
-This endpoint returns all matching results when the request is sent and it provides the analysis results of a text block as a list of matching tags with their probabilities. 
+This endpoint returns all matching results when the request is sent and it provides the analysis results of a text block as a list of matching tags with their probabilities. When the result comes, top match result comes. It lists all the categories that may contain the word and the probability of being in those categories.
 
   
 | Parameter       | Type     | Required?            | Place                        |       Definition                                       |
@@ -121,39 +121,39 @@ This endpoint returns all matching results when the request is sent and it provi
    ##### Example Request:
   
     ```
-    curl --location 
-      --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false' \
-      --header 'Authorization: Bearer {key}'
+      curl --location 
+        --request GET 'https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false' \
+        --header 'Authorization: Bearer {key}'
     ```
   
    ##### Example Response:
 
     ```
-    [
-      {
-          "name": "...",
-          "probability": 0.8
-      },
-      {
-          "name": "...",
-          "probability": 0.11
-      },
-      {
-          "name": "...",
-          "probability": 0.04
-      }
-    ]
+      [
+        {
+            "name": "...",
+            "probability": 0.8
+        },
+        {
+            "name": "...",
+            "probability": 0.11
+        },
+        {
+            "name": "...",
+            "probability": 0.04
+        }
+      ]
     ```
     
    <details><summary>Request Examples in C#</summary>
 
     ```
-    using RestSharp;
-    var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false");
-    var request = new RestRequest();
-    request.AddHeader("Authorization", "Bearer {key}");
-    var response = client.Execute(request);
-    Console.WriteLine(response.Content);
+      using RestSharp;
+      var client = new RestClient("https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false");
+      var request = new RestRequest();
+      request.AddHeader("Authorization", "Bearer {key}");
+      var response = client.Execute(request);
+      Console.WriteLine(response.Content);
     ```
   
    </details>
@@ -161,14 +161,14 @@ This endpoint returns all matching results when the request is sent and it provi
   <details><summary>Request Examples in Python</summary>
   
   ```
-  import requests
-  url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false"
-  payload={}
-  headers = {
-    'Authorization': 'Bearer {key}'
-  }
-  response = requests.request("GET", url, headers=headers, data=payload)
-  print(response.text)
+    import requests
+    url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags?text=hello&strict=false"
+    payload={}
+    headers = {
+      'Authorization': 'Bearer {key}'
+    }
+    response = requests.request("GET", url, headers=headers, data=payload)
+    print(response.text)
 
   ```
   
@@ -176,7 +176,7 @@ This endpoint returns all matching results when the request is sent and it provi
   
  ### 3.2. Getting Custom Model Predictions(Batch): 
  
- This endpoint creates anew record that belongs to a data model. Each time you create a record, you are actually training the parent data model.
+ This endpoint creates a new record that belongs to a data model. Each time you create a record, you are actually training the parent data model.
  Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response.
  
  
@@ -190,29 +190,34 @@ This endpoint returns all matching results when the request is sent and it provi
   ##### Example Request:
   
   ```
-  curl -X 'POST' \
-    'https://api.kimola.com/v1/cognitive/Models/{secret}/tags' \
-    -H 'accept: */*' \
-    -H 'Authorization: Bearer {key}' \
-    -H 'Content-Type: application/json-patch+json' \
-    -d '[
-    {
-      "id": "...",
-      "text": "..."
-    }
-  ]'
+    curl -X 'POST' \
+      'https://api.kimola.com/v1/cognitive/Models/{secret}/tags' \
+      -H 'accept: */*' \
+      -H 'Authorization: Bearer {key}' \
+      -H 'Content-Type: application/json-patch+json' \
+      -d '[
+      {
+        "id": "...",
+        "text": "..."
+      }
+    ]'
   ```
   
    ##### Example Response:
    
   ```
-  [
-    {
-      "id": "...",
-      "label": "...",
-      "probability": 0.96
-    }
-  ]
+    [
+      {
+        "id": "0",
+        "label": "Game Praise",
+        "probability": 0.96
+      },
+      {
+        "id": "1",
+        "label": "Feature & Design",
+        "probability": 0.48
+      }
+    ]
   ```
   <details><summary>Request Examples in C#</summary>
   
@@ -227,6 +232,10 @@ This endpoint returns all matching results when the request is sent and it provi
     @"    ""id"": ""0""," + "\n" +
     @"    ""text"": ""I love this game""" + "\n" +
     @"  }" + "\n" +
+    @"  {" + "\n" +
+    @"    ""id"": ""1""," + "\n" +
+    @"    ""text"": ""The game is too slow""" + "\n" +
+    @"  }" + "\n" +
     @"]'";
     request.AddParameter("application/json", body, ParameterType.RequestBody);
     var response = client.Execute(request);
@@ -238,20 +247,17 @@ This endpoint returns all matching results when the request is sent and it provi
   <details><summary>Request Examples in Python</summary>
   
   ```
-    import requests
-    import json
-  
-    url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags"
-    payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  }\n]'"
-    headers = {
+  import requests
+  import json
+
+  url = "https://api.kimola.com/v1/cognitive/Models/{secret}/tags"
+  payload = "[\n  {\n    \"id\": \"0\",\n    \"text\": \"I love this game\"\n  },{\n    \"id\": \"1\",\n    \"text\": \"The game is too slow\"\n  }\n]'"
+  headers = {
       'Authorization': 'Bearer {key}',
       'Content-Type': 'application/json'
-    }
-
-    response = requests.request("POST", url, headers=headers, data=payload)
-
-    print(response.text)
-
+  }
+  response = requests.request("POST", url, headers=headers, data=payload)
+  print(response.text)
   ```
   
   </details>
@@ -562,8 +568,7 @@ This endpoint returns all matching results when the request is sent and it provi
   
   </details>
   
-  When the result comes, top match result comes.
-  It lists all the categories that may contain the word and the probability of being in those categories.
+  
   
   Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response. Please make sure that the id you enter is unique.
   
