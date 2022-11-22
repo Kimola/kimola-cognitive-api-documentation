@@ -96,7 +96,7 @@ There are many cases where you want to accomplish a variety of work in the Kimol
   |   PUT            |	Changes and/or replaces resources or collections            |
   |   DELETE         |	Deletes resources                                           |
   
-  Custom models are the name given to the user-created models that you access in the desktop models menu.
+  Custom models are the name given to the user-created models you access in the left menu on your dashboard.
   Pre-built models are the predefined models listed on the gallery page.
   
   One of the path parameters you can use to request endpoints is the secret. After going to the overview page of a selected model on the Models page, you can find the Secret at the top left.
