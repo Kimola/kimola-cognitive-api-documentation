@@ -178,8 +178,7 @@ This endpoint returns all matching tags with their probabilities of a single tex
   
  ### 3.2. Getting Custom Model Predictions (Batch) 
  
-  This endpoint creates a new record that belongs to a data model. Each time you create a record, you are actually training the parent data model.
-Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response. Please make     sure that the id you enter is unique.
+  This endpoint returns top matching tags with their probabilities of multiple text blocks. Even if the id you send to this method is not null or unique, you will not get an error. Kimola does not guarantee a sequential response. Please make sure that the id you enter is unique.
  
  
 | Parameter       | Type     | Required?            | Place                  |       Definition                    |
