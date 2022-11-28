@@ -7,9 +7,9 @@ This repository contains the documentation for [Kimola Cognitive](https://kimola
   - [Authentication](#2-authentication)
   - [Endpoints](#3-endpoints)
     - [Getting Custom Model Predictions](#31-getting-custom-model-predictions)
-    - [Getting Custom Model Predictions (Batch)](#32-getting-custom-model-predictionsbatch)
+    - [Getting Custom Model Predictions (Batch)](#32-getting-custom-model-predictions-batch)
     - [Getting Pre-built Model Predictions](#33-getting-pre-built-model-predictions)
-    - [Getting Pre-built Model Predictions (Batch)](#34-getting-pre-built-model-predictionsbatch)
+    - [Getting Pre-built Model Predictions (Batch)](#34-getting-pre-built-model-predictions-batch)
     - [Getting Model Details](#35-getting-model-details)
     - [Listing All Models](#36-listing-all-models)
     
